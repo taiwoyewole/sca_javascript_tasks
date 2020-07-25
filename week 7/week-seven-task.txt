@@ -1,0 +1,55 @@
+1. What are promises and how they are useful?
+
+*** Promises are  objects that may produce a single value sometime in the future. Promisses takes a function as its argument, with two parameters - resolve and reject.
+A promise may be of three states: fulfilled, rejected or pending.
+
+
+2. What is the difference between synchronous and asynchronous code in JavaScript?
+
+*** Synchronoous code is executed sequentially i.e each statement waits for the previous to finish before executing while asynchronous code runs continually, that is, you don't have to wait for the previous code to run before executing the next. This increases app responsiveness and helps to reduce waiting time for users.
+
+
+3. Write out any sample syncronous and asyncronous javascript code
+
+***  Synchronous javascript code 
+     
+
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', () => {
+    let myDate;
+    for(let i = 0; i < 50000000; i++) {
+        let date = new Date();
+        myDate = date
+    }
+
+    console.log(myDate);
+
+    let headingElem = document.createElement('h2');
+    headingElem.textContent = 'Add me';
+    document.body.appendChild(headingElem);
+    });
+
+*** Asynchronous javascript code 
+
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer is set to true to represent a successful response from a server
+  let responseFromServer = true;
+    
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {  
+    reject("Data not received");
+  }
+});
+
+makeServerRequest.then(result => {
+  console.log(result)
+});
+makeServerRequest.catch(error => {
+  console.log(error);
+});
+
+
+4. List the different ways to deal with Asynchronous Code?
+
+*** Promises, Callbacks, Async/Await
